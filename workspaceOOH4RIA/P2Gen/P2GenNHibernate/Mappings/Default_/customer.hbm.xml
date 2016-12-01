@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="P2GenNHibernate"
+		                   namespace="P2GenNHibernate.EN.Default_">
+		    
+		    
+			
+				<class name="CustomerEN" table="Customer"> 
+						<id name="Idnumber" column="idnumber"/> 
+			
+					
+					<property name="FirstName" type="string"> 
+						<column name="firstName"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+					<property name="LastName" type="string"> 
+						<column name="lastName"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+					<property name="Telephone" type="string"> 
+						<column name="telephone"  not-null="true"/>
+					</property>
+					<property name="Zip" type="string"> 
+						<column name="zip"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Order" >
+							<key>
+							
+								
+								<column name="FK_idnumber_customer"/>
+					      	</key>
+							<one-to-many class="P2GenNHibernate.EN.Default_.CustomerOrderEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CustomerENReadAllHQL">from CustomerEN</query>
+		</hibernate-mapping>
+	

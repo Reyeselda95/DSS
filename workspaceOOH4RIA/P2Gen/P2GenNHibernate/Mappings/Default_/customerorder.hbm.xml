@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="P2GenNHibernate"
+		                   namespace="P2GenNHibernate.EN.Default_">
+		    
+		    
+			
+				<class name="CustomerOrderEN" table="CustomerOrder"> 
+						<id name="OrderId" column="orderId"/> 
+			
+					
+					<property name="Date" type="date"> 
+						<column name="date"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+					<property name="City" type="string"> 
+						<column name="city"  not-null="true"/>
+					</property>
+					<property name="State" type="string"> 
+						<column name="state"  not-null="true"/>
+					</property>
+					<property name="Zip" type="string"> 
+						<column name="zip"  not-null="true"/>
+					</property>
+					<property name="PaymentMethod" type="string"> 
+						<column name="paymentMethod"  not-null="true"/>
+					</property>
+					<property name="Status" > 
+						<column name="status"  not-null="true"/>
+					</property>
+			
+			
+		  			
+						<many-to-one name="Customer" class="P2GenNHibernate.EN.Default_.CustomerEN" >	
+								<column name="FK_idnumber_customer"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="OrderLine" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_orderId_order"/>
+					      	</key>
+							<one-to-many class="P2GenNHibernate.EN.Default_.OrderLineEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CustomerOrderENReadAllHQL">from CustomerOrderEN</query>
+		</hibernate-mapping>
+	

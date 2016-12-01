@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;default.domainModel&apos; to &apos;models&apos;&#x0D;&#x0A;- Original project: &apos;Práctica1&apos;&#x0D;&#x0A;- Destination element: &apos;models&apos;&#x0D;&#x0A;- Original element: &apos;default.domainModel&apos;" description="Copy file" element1="models/default.domainModel" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1454862359917" target="/P1/models" units="0" version="1.0"/>
+</session>

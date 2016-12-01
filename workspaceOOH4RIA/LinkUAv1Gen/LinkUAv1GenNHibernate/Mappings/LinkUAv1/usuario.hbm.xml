@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="LinkUAv1GenNHibernate"
+		                   namespace="LinkUAv1GenNHibernate.EN.LinkUAv1">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+						<id name="Email" column="email"/> 
+			
+					
+					<property name="Nick" type="string"> 
+						<column name="nick"  not-null="true"/>
+					</property>
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Apellidos" type="string"> 
+						<column name="apellidos"  not-null="true"/>
+					</property>
+					<property name="Fnac" type="date"> 
+						<column name="fnac"  not-null="true"/>
+					</property>
+					<property name="Tfno" type="string"> 
+						<column name="tfno"  not-null="true"/>
+					</property>
+					<property name="Pass" type="string"> 
+						<column name="pass"  not-null="true"/>
+					</property>
+					<property name="Estado" > 
+						<column name="estado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Comentario_1" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario_2"/>
+					      	</key>
+							<one-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.ComentarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Publicacion_1" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario_1"/>
+					      	</key>
+							<one-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.PublicacionEN"/>
+					    </bag>
+					
+			
+			
+		  			
+						<bag name="Publicacion_2" table="[publicacion_0_usuario_0]" inverse="true" >
+							<key>
+								
+									<column name="FK_email_idUsuario_0"/> 
+							</key>
+      						<many-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.PublicacionEN">
+									<column name="FK_idPublicacion_idPublicacion_0"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Comentario_2" table="[comentario_0_usuario_0]" inverse="true" >
+							<key>
+								
+									<column name="FK_email_idUsuario_0"/> 
+							</key>
+      						<many-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.ComentarioEN">
+									<column name="FK_idComentario_idComentario_0"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Titulacion_1" class="LinkUAv1GenNHibernate.EN.LinkUAv1.TitulacionEN" lazy="false" >	
+								<column name="FK_idTitulacion_idTitulacion"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Material_2" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.MaterialEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Mensaje_1" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.MensajeEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Mensaje_2" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario_0"/>
+					      	</key>
+							<one-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.MensajeEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENpor_titulacionHQL"><![CDATA[FROM UsuarioEN WHERE Titulacion_1.Id = p_titulacion]]></query>
+		</hibernate-mapping>
+	

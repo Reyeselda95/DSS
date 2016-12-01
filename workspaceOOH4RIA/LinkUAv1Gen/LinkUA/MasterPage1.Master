@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage1.master.cs" Inherits="LinkUA.MasterPage1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="Content/Images/favicon.ico" />
+    <title>LinkUA</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.aspx" class="navbar-header">
+                    <img src="Content/Images/logo.png" /></a>
+                <a class="navbar-brand" href="index.aspx">Linkua</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.aspx">Inicio</a></li>
+                    <li><a href="Materiales.aspx">Materiales</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorías<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Categoria.aspx?CAT=Educacion">Educación</a></li>
+                            <li><a href="Categoria.aspx?CAT=Social">Social</a></li>
+                            <li><a href="Categoria.aspx?CAT=Flechazo">Flechazo</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="Categoria.aspx?CAT=Alojamiento">Alojamiento</a></li>
+                            <li><a href="Categoria.aspx?CAT=Otros">Otros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <a href=# class="navbar-btn h3 navbar-right"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <asp:Label ID="userLabel" runat="server" Text="Control" /><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="MiPerfil.aspx"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Perfil</a></li>
+                            <li><a href="logout.aspx"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <script src="Scripts/jquery-2.2.3.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+</body>
+</html>

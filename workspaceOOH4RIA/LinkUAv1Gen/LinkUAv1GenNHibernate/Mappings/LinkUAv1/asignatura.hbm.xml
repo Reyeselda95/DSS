@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="LinkUAv1GenNHibernate"
+		                   namespace="LinkUAv1GenNHibernate.EN.LinkUAv1">
+		    
+		    
+			
+				<class name="AsignaturaEN" table="Asignatura"> 
+				  	
+						<id name="Id" column="idAsignatura" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Curso" type="integer"> 
+						<column name="curso"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Titulacion_2" class="LinkUAv1GenNHibernate.EN.LinkUAv1.TitulacionEN" >	
+								<column name="FK_idTitulacion_idTitulacion"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Material_1" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_idAsignatura_idAsignatura"/>
+					      	</key>
+							<one-to-many class="LinkUAv1GenNHibernate.EN.LinkUAv1.MaterialEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="AsignaturaENReadAllHQL">from AsignaturaEN</query>
+		  <query name="AsignaturaENpor_titulacionHQL"><![CDATA[FROM AsignaturaEN WHERE Titulacion_2.Id = p_titulacion]]></query>
+		</hibernate-mapping>
+	

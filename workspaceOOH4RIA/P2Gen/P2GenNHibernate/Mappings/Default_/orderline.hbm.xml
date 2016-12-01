@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="P2GenNHibernate"
+		                   namespace="P2GenNHibernate.EN.Default_">
+		    
+		    
+			
+				<class name="OrderLineEN" table="OrderLine"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Quantity" type="integer"> 
+						<column name="quantity"  not-null="true"/>
+					</property>
+					<property name="Number" type="integer"> 
+						<column name="number"  not-null="true"/>
+					</property>
+			
+			
+		  			
+						<many-to-one name="Order" class="P2GenNHibernate.EN.Default_.CustomerOrderEN" >	
+								<column name="FK_orderId_order"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+			
+		  			
+						<many-to-one name="Product" class="P2GenNHibernate.EN.Default_.ProductEN" >	
+								<column name="FK_productId_product"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="OrderLineENReadAllHQL">from OrderLineEN</query>
+		</hibernate-mapping>
+	

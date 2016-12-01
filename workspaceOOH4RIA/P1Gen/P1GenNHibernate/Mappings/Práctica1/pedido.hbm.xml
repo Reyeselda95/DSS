@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="P1GenNHibernate"
+		                   namespace="P1GenNHibernate.EN.Práctica1">
+		    
+		    
+			
+				<class name="PedidoEN" table="Pedido"> 
+						<id name="PedidoId" column="PedidoIdPedido"/> 
+			
+					
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Direccion" type="string"> 
+						<column name="direccion"  not-null="true"/>
+					</property>
+					<property name="Localidad" type="string"> 
+						<column name="localidad"  not-null="true"/>
+					</property>
+					<property name="Provincia" type="string"> 
+						<column name="provincia"  not-null="true"/>
+					</property>
+					<property name="Cp" type="string"> 
+						<column name="cp"  not-null="true"/>
+					</property>
+					<property name="TipoPago" type="string"> 
+						<column name="tipoPago"  not-null="true"/>
+					</property>
+					<property name="Estado" > 
+						<column name="Estado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Cliente" class="P1GenNHibernate.EN.Práctica1.ClienteEN" >	
+								<column name="FK_NIFCliente_idCliente"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="LineaPedido" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_PedidoIdPedido_idPedido"/>
+					      	</key>
+							<one-to-many class="P1GenNHibernate.EN.Práctica1.LineaPedidoEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
+		</hibernate-mapping>
+	

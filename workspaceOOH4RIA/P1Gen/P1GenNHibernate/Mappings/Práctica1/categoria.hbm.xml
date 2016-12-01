@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="P1GenNHibernate"
+		                   namespace="P1GenNHibernate.EN.Práctica1">
+		    
+		    
+			
+				<class name="CategoriaEN" table="Categoria"> 
+				  	
+						<id name="CategoriaId" column="categoriaIdCategoria" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Subcategoria" >
+							<key>
+							
+								
+								<column name="FK_categoriaIdCategoria_idSubcategoria"/>
+					      	</key>
+							<one-to-many class="P1GenNHibernate.EN.Práctica1.CategoriaEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Supercategoria" class="P1GenNHibernate.EN.Práctica1.CategoriaEN" >	
+								<column name="FK_categoriaIdCategoria_idSubcategoria"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Producto" >
+							<key>
+							
+								
+								<column name="FK_categoriaIdCategoria_idCategoria"/>
+					      	</key>
+							<one-to-many class="P1GenNHibernate.EN.Práctica1.ProductoEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CategoriaENReadAllHQL">from CategoriaEN</query>
+		</hibernate-mapping>
+	

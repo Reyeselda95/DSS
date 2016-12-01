@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="P2GenNHibernate"
+		                   namespace="P2GenNHibernate.EN.Default_">
+		    
+		    
+			
+				<class name="CategoryEN" table="Category"> 
+						<id name="CategoryId" column="categoryId"/> 
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+			
+			
+		  			
+						<bag name="Product" >
+							<key>
+							
+								
+								<column name="FK_categoryId_category"/>
+					      	</key>
+							<one-to-many class="P2GenNHibernate.EN.Default_.ProductEN"/>
+					    </bag>
+					
+			
+			
+			
+			
+		  			
+						<many-to-one name="ParentCategory" class="P2GenNHibernate.EN.Default_.CategoryEN" >	
+								<column name="FK_categoryId_subCategory"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="SubCategory" >
+							<key>
+							
+								
+								<column name="FK_categoryId_subCategory"/>
+					      	</key>
+							<one-to-many class="P2GenNHibernate.EN.Default_.CategoryEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CategoryENReadAllHQL">from CategoryEN</query>
+		</hibernate-mapping>
+	
